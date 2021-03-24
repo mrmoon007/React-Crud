@@ -72,8 +72,12 @@ export default function Form() {
             
         }
         setState(cloneUpdateData)
-        console.log(state)
         setStatus(false)
+        const cloneEditdata={...state}
+        cloneEditdata.name=''
+        cloneEditdata.email=''
+        cloneEditdata.p_number=''
+        setState(cloneEditdata)
 
     }
 
