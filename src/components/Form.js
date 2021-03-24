@@ -62,7 +62,7 @@ export default function Form() {
     const updateHandler=(e)=>{
         e.preventDefault();
         const cloneUpdateData={...state}
-        for (let index = 0; index < cloneUpdateData.length; index++) {
+        for (let index = 0; index < cloneUpdateData.list.length; index++) {
             const element=cloneUpdateData.list[index]
             if(index===state.id){
                 element.name=state.name
@@ -72,12 +72,14 @@ export default function Form() {
             
         }
         setState(cloneUpdateData)
+        console.log(state)
+        setStatus(false)
 
     }
 
     return (
         <div className="">
-            <form onSubmit={(e)=>status?updateHandler(e):submitHendeler(e)}>
+            <form onSubmit={(e)=> status ? updateHandler(e):submitHendeler(e)}>
                 <div className="form-group row">
                     <label className="col-sm-2 col-form-label">Name : </label>
                     <div className="col-sm-10">
